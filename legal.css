@@ -1,0 +1,122 @@
+/* Styles partagés pour les pages légales SELIOM (mentions, CGV, confidentialité) */
+:root {
+  --primary: #368c9b;
+  --primary-dark: #1f5a66;
+  --primary-soft: #e3f1f3;
+  --gold: #E8A84C;
+  --bg: #f7f8fa;
+  --text: #374151;
+  --text-soft: #6b7280;
+  --text-strong: #111827;
+  --line: #e5e7eb;
+  --dark: #0e1d22;
+  --radius: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Sora', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.65;
+  font-size: 16px;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+.container { width: min(820px, 100% - 40px); margin-inline: auto; }
+
+/* Header simplifié */
+.legal-nav {
+  background: white;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.legal-nav .inner {
+  display: flex; justify-content: space-between; align-items: center;
+  width: min(1200px, 100% - 40px);
+  margin-inline: auto;
+}
+.legal-nav .logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 20px; color: var(--text-strong);
+}
+.legal-nav .logo img { width: 36px; height: 36px; border-radius: 8px; }
+.legal-nav .back {
+  font-size: 14px; font-weight: 500; color: var(--primary);
+}
+
+/* Hero court */
+.legal-hero {
+  background: linear-gradient(165deg, var(--dark) 0%, #0a1518 100%);
+  color: white;
+  padding: 70px 0 50px;
+  text-align: center;
+}
+.legal-hero h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600; letter-spacing: -.01em;
+  margin: 0 0 10px;
+}
+.legal-hero p {
+  color: rgba(255,255,255,.65);
+  margin: 0; font-size: 15px;
+}
+
+/* Contenu */
+.legal-content {
+  padding: 60px 0 80px;
+}
+.legal-content h2 {
+  font-size: 22px; font-weight: 600;
+  color: var(--text-strong);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content h3 {
+  font-size: 17px; font-weight: 600;
+  color: var(--text-strong);
+  margin: 24px 0 8px;
+}
+.legal-content p, .legal-content li {
+  font-size: 15.5px; color: var(--text);
+}
+.legal-content ul { padding-left: 22px; }
+.legal-content li { margin-bottom: 6px; }
+.legal-content strong { color: var(--text-strong); font-weight: 600; }
+
+.info-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+}
+.info-box dl {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 10px 16px; margin: 0;
+}
+.info-box dt { font-weight: 600; color: var(--text-soft); font-size: 14px; }
+.info-box dd { margin: 0; font-size: 15px; color: var(--text-strong); }
+
+/* Footer simplifié */
+.legal-footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.6);
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 13px;
+}
+.legal-footer a { color: rgba(255,255,255,.8); }
+.legal-footer .links { margin-top: 8px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 600px) {
+  .info-box dl { grid-template-columns: 1fr; gap: 4px 0; }
+  .info-box dt { margin-top: 8px; }
+  .legal-content h2 { font-size: 19px; }
+}
