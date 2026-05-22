@@ -34,7 +34,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Preload LCP candidate (first service card image) -->
+<link rel="preload" as="image" href="assets/jardinage.webp" type="image/webp" fetchpriority="high" />
 
 <!-- JSON-LD LocalBusiness -->
 <script type="application/ld+json">
@@ -125,6 +128,10 @@
     width: 100%;
   }
   img { max-width: 100%; display: block; height: auto; }
+  picture { display: block; }
+  /* Pictures à l'intérieur d'une .service-img doivent être transparentes pour
+     laisser l'img absolument positionnée occuper toute la zone */
+  .service-img picture { display: contents; }
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
@@ -513,10 +520,12 @@
     max-width: 720px; width: 100%;
     margin: 40px auto 0;
     border-radius: 18px;
+    overflow: hidden;
     box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
     border: 1px solid rgba(255,255,255,.08);
     background: white;
   }
+  .urssaf-banner img { width: 100%; height: auto; display: block; }
   @media (max-width: 768px) {
     .urssaf-banner { max-width: 100%; border-radius: 14px; margin-top: 28px; }
   }
@@ -969,7 +978,10 @@
   <div class="container">
     <div class="team">
       <div class="team-photos reveal left">
-        <img src="assets/equipe-seliom.png" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" width="3840" height="2180" loading="lazy" decoding="async" />
+        <picture>
+          <source srcset="assets/equipe-seliom.webp" type="image/webp" />
+          <img src="assets/equipe-seliom.jpg" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" width="1600" height="908" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <div class="team-text reveal right">
         <div class="section-eyebrow">L'équipe SELIOM</div>
@@ -1000,7 +1012,10 @@
     <div class="services-grid">
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" width="1200" height="800" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="assets/jardinage.webp" type="image/webp" />
+            <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" width="300" height="231" loading="eager" fetchpriority="high" decoding="async" />
+          </picture>
           <div class="service-badge"><span class="ico" aria-hidden="true">🌿</span>Jardinage</div>
         </div>
         <div class="service-body">
@@ -1018,7 +1033,10 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/femme-menage.png" alt="Ménage à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="assets/femme-menage.webp" type="image/webp" />
+            <img src="assets/femme-menage.jpg" alt="Ménage à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
+          </picture>
           <div class="service-badge"><span class="ico" aria-hidden="true">🧽</span>Ménage</div>
         </div>
         <div class="service-body">
@@ -1036,7 +1054,10 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/informatique.png" alt="Assistance informatique à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="assets/informatique.webp" type="image/webp" />
+            <img src="assets/informatique.jpg" alt="Assistance informatique à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
+          </picture>
           <div class="service-badge"><span class="ico" aria-hidden="true">💻</span>Informatique</div>
         </div>
         <div class="service-body">
@@ -1054,7 +1075,10 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/administratif.png" alt="Assistance administrative à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset="assets/administratif.webp" type="image/webp" />
+            <img src="assets/administratif.jpg" alt="Assistance administrative à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
+          </picture>
           <div class="service-badge"><span class="ico" aria-hidden="true">📄</span>Administratif</div>
         </div>
         <div class="service-body">
@@ -1086,7 +1110,10 @@
       <p class="section-lead">Grâce au dispositif Nova Urssaf, vous bénéficiez du crédit d'impôt instantanément — pas l'année suivante. Aucune démarche.</p>
     </div>
 
-    <img src="assets/avanceimmediate.png" alt="Mon crédit d'impôt pour les services à la personne — avance immédiate via Urssaf" class="urssaf-banner reveal" width="3840" height="2180" loading="lazy" decoding="async" />
+    <picture class="urssaf-banner reveal">
+      <source srcset="assets/avanceimmediate.webp" type="image/webp" />
+      <img src="assets/avanceimmediate.jpg" alt="Mon crédit d'impôt pour les services à la personne — avance immédiate via Urssaf" width="1600" height="908" loading="lazy" decoding="async" />
+    </picture>
 
     <div class="credit-steps">
       <div class="credit-step reveal">
