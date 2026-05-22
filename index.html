@@ -339,20 +339,19 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
   }
   .team-photos {
-    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px;
-    gap: 14px;
-  }
-  .team-photo {
-    border-radius: var(--radius-sm);
-    background:
-      repeating-linear-gradient(45deg, #e9eef0 0 8px, #dde4e7 8px 16px);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
     border: 1px solid var(--line);
-    display: grid; place-items: center;
-    font-family: ui-monospace, 'SF Mono', monospace; font-size: 11px;
-    color: var(--text-soft);
-    text-align: center; padding: 12px;
+    background: var(--bg);
   }
-  .team-photo.big { grid-column: 1 / -1; height: 100%; }
+  .team-photo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
   .team-photo.tall { grid-row: 1 / -1; height: auto; }
   .team-text h2 { margin-top: 0; }
   .team-features { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 12px; }
@@ -926,9 +925,7 @@
   <div class="container">
     <div class="team">
       <div class="team-photos reveal left">
-        <div class="team-photo">photo équipe · jardin</div>
-        <div class="team-photo">photo équipe · ménage</div>
-        <div class="team-photo big">photo équipe SELIOM (1600×600)</div>
+        <img src="assets/equipe-seliom.jpg" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" loading="lazy" />
       </div>
       <div class="team-text reveal right">
         <div class="section-eyebrow">L'équipe SELIOM</div>
