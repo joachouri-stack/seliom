@@ -641,22 +641,42 @@
   /* ───────── ZONES ───────── */
   .zones-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
   .zone {
-    background: white; border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 26px; transition: all .25s;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 22px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 180px;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, border-color .25s;
   }
   .zone:hover {
     border-color: var(--primary);
     box-shadow: var(--shadow-md);
     transform: translateY(-4px);
   }
-  .zone .ico { font-size: 30px; margin-bottom: 14px; }
-  .zone h4 { margin: 0 0 12px; font-size: 17px; font-weight: 600; color: var(--text-strong); }
-  .zone-cities { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-  .zone-cities li {
-    padding: 4px 10px;
-    background: var(--bg);
-    border-radius: 999px;
-    font-size: 13px; color: var(--text);
+  .zone .ico {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--primary-soft);
+    display: grid; place-items: center;
+    font-size: 30px;
+    transition: background .25s, transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .zone:hover .ico {
+    background: var(--gold-soft);
+    transform: scale(1.08);
+  }
+  .zone h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-strong);
+    letter-spacing: -.005em;
   }
 
   /* ───────── TESTIMONIALS ───────── */
@@ -1142,22 +1162,18 @@
       <div class="zone reveal">
         <div class="ico">🏔️</div>
         <h4>Rhône-Alpes</h4>
-        <ul class="zone-cities"><li>Lyon</li><li>Grenoble</li><li>Valence</li><li>Annecy</li></ul>
       </div>
       <div class="zone reveal">
         <div class="ico">⛵</div>
         <h4>Bouches-du-Rhône</h4>
-        <ul class="zone-cities"><li>Marseille</li><li>Aix</li><li>Arles</li></ul>
       </div>
       <div class="zone reveal">
         <div class="ico">🌻</div>
         <h4>Vaucluse</h4>
-        <ul class="zone-cities"><li>Avignon</li><li>Carpentras</li><li>Orange</li><li>Apt</li></ul>
       </div>
       <div class="zone reveal">
         <div class="ico">🌅</div>
         <h4>Occitanie</h4>
-        <ul class="zone-cities"><li>Montpellier</li><li>Nîmes</li><li>Toulouse</li></ul>
       </div>
     </div>
   </div>
