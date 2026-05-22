@@ -377,7 +377,7 @@
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   }
   .service-card {
-    background: white; border: 1px solid var(--line); border-radius: var(--radius);
+    background: white; border: 2px solid var(--line); border-radius: var(--radius);
     overflow: hidden;
     transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
     display: flex; flex-direction: column;
@@ -386,15 +386,15 @@
   .service-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--gold));
+    background: var(--gold);
     transform: scaleX(0); transform-origin: left center;
     transition: transform .5s cubic-bezier(.2,.8,.2,1);
     z-index: 3;
   }
   .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px -20px rgba(54,140,155,.35);
-    border-color: transparent;
+    border-color: var(--gold);
+    box-shadow: 0 24px 40px -16px rgba(232, 168, 76, .45);
   }
   .service-card:hover::before { transform: scaleX(1); }
   .service-img {
