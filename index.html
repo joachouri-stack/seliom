@@ -351,7 +351,6 @@
     display: block;
     margin: 0;
   }
-  .team-photo.tall { grid-row: 1 / -1; height: auto; }
   .team-text h2 { margin-top: 0; }
   .team-features { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 12px; }
   .team-features li {
@@ -412,22 +411,6 @@
   }
   .service-card:hover .service-img .ph { transform: scale(1.08); }
   .service-card:hover .service-img::after { opacity: 1; }
-
-  /* Placeholder élégant pour les cards sans vraie photo */
-  .service-img .ph-empty {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    font-size: 120px; line-height: 1;
-    filter: drop-shadow(0 8px 20px rgba(54,140,155,.18));
-    opacity: .55;
-    transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .35s;
-  }
-  .service-card:hover .service-img .ph-empty {
-    transform: scale(1.08) rotate(-4deg);
-    opacity: .8;
-  }
-
-  .service-img-label { display: none; }
 
   .service-badge {
     position: absolute; left: 14px; top: 14px;
@@ -796,7 +779,7 @@
   .wa svg { width: 30px; height: 30px; color: white; }
 
   /* ───────── REVEAL ANIMATIONS ───────── */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; will-change: opacity, transform; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.left { transform: translateX(-30px); }
   .reveal.right { transform: translateX(30px); }
   .reveal.show { opacity: 1; transform: none; }
@@ -909,7 +892,7 @@
 </nav>
 
 <!-- HERO -->
-<header class="hero" id="top" data-screen-label="02 Hero">
+<header class="hero" id="top">
   <div class="container hero-grid">
     <div class="reveal left">
       <span class="eyebrow"><span class="dot"></span>Entreprise agréée SAP · Nova Urssaf</span>
@@ -927,7 +910,7 @@
       </div>
     </div>
 
-    <aside class="hero-card reveal right">
+    <div class="hero-card reveal right">
       <div class="hero-card-top">
         <div>
           <div class="hero-card-label">Vous économisez</div>
@@ -945,19 +928,19 @@
 
       <div class="hero-services-list">
         <div class="hero-service">
-          <div class="hero-service-name"><span class="ico">🌿</span>Jardinage</div>
+          <div class="hero-service-name"><span class="ico" aria-hidden="true">🌿</span>Jardinage</div>
           <div class="hero-service-cap">jusqu'à 5 000 €/an</div>
         </div>
         <div class="hero-service">
-          <div class="hero-service-name"><span class="ico">🧽</span>Ménage</div>
+          <div class="hero-service-name"><span class="ico" aria-hidden="true">🧽</span>Ménage</div>
           <div class="hero-service-cap">jusqu'à 12 000 €/an</div>
         </div>
         <div class="hero-service">
-          <div class="hero-service-name"><span class="ico">💻</span>Informatique</div>
+          <div class="hero-service-name"><span class="ico" aria-hidden="true">💻</span>Informatique</div>
           <div class="hero-service-cap">jusqu'à 3 000 €/an</div>
         </div>
         <div class="hero-service">
-          <div class="hero-service-name"><span class="ico">📄</span>Administratif</div>
+          <div class="hero-service-name"><span class="ico" aria-hidden="true">📄</span>Administratif</div>
           <div class="hero-service-cap">jusqu'à 12 000 €/an</div>
         </div>
       </div>
@@ -967,12 +950,12 @@
         <span class="hero-badge"><span class="check">✓</span> Avance immédiate</span>
         <span class="hero-badge">9h–22h · 7j/7</span>
       </div>
-    </aside>
+    </div>
   </div>
 </header>
 
 <!-- ORANGE BANNER -->
-<div class="banner" data-screen-label="03 Banner">
+<div class="banner">
   <div class="container banner-inner">
     <div class="banner-text">
       100 € de service = <strong>vous payez 50 €</strong> · Plafond jusqu'à <strong>12 000 €/an</strong> par foyer.
@@ -982,7 +965,7 @@
 </div>
 
 <!-- EQUIPE -->
-<section data-screen-label="04 Équipe">
+<section>
   <div class="container">
     <div class="team">
       <div class="team-photos reveal left">
@@ -1006,7 +989,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class="services-bg" id="services" data-screen-label="05 Services">
+<section class="services-bg" id="services">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Nos prestations</div>
@@ -1018,7 +1001,7 @@
       <article class="service-card reveal">
         <div class="service-img">
           <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" width="1200" height="800" loading="lazy" decoding="async" />
-          <div class="service-badge"><span class="ico">🌿</span>Jardinage</div>
+          <div class="service-badge"><span class="ico" aria-hidden="true">🌿</span>Jardinage</div>
         </div>
         <div class="service-body">
           <h3 class="service-name">Jardinage</h3>
@@ -1036,7 +1019,7 @@
       <article class="service-card reveal">
         <div class="service-img">
           <img src="assets/femme-menage.png" alt="Ménage à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
-          <div class="service-badge"><span class="ico">🧽</span>Ménage</div>
+          <div class="service-badge"><span class="ico" aria-hidden="true">🧽</span>Ménage</div>
         </div>
         <div class="service-body">
           <h3 class="service-name">Ménage</h3>
@@ -1054,7 +1037,7 @@
       <article class="service-card reveal">
         <div class="service-img">
           <img src="assets/informatique.png" alt="Assistance informatique à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
-          <div class="service-badge"><span class="ico">💻</span>Informatique</div>
+          <div class="service-badge"><span class="ico" aria-hidden="true">💻</span>Informatique</div>
         </div>
         <div class="service-body">
           <h3 class="service-name">Assistance informatique</h3>
@@ -1072,7 +1055,7 @@
       <article class="service-card reveal">
         <div class="service-img">
           <img src="assets/administratif.png" alt="Assistance administrative à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
-          <div class="service-badge"><span class="ico">📄</span>Administratif</div>
+          <div class="service-badge"><span class="ico" aria-hidden="true">📄</span>Administratif</div>
         </div>
         <div class="service-body">
           <h3 class="service-name">Assistance administrative</h3>
@@ -1091,11 +1074,11 @@
 </section>
 
 <!-- CREDIT D'IMPOT -->
-<section class="credit" id="credit" data-screen-label="06 Crédit">
+<section class="credit" id="credit">
   <div class="container">
     <div class="section-head reveal" style="position: relative; z-index: 2;">
       <div class="urssaf-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E8A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E8A84C" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
         <span>Service agréé · Nova Urssaf · Avance immédiate</span>
       </div>
       <div class="section-eyebrow">Crédit d'impôt immédiat</div>
@@ -1124,10 +1107,10 @@
     </div>
 
     <div class="caps-grid">
-      <div class="cap reveal"><div class="ico">🌿</div><h5>Jardinage</h5><div class="amount">5 000 €</div><div class="per">par an</div></div>
-      <div class="cap reveal"><div class="ico">🧽</div><h5>Ménage</h5><div class="amount">12 000 €</div><div class="per">par an</div></div>
-      <div class="cap reveal"><div class="ico">💻</div><h5>Informatique</h5><div class="amount">3 000 €</div><div class="per">par an</div></div>
-      <div class="cap reveal"><div class="ico">📄</div><h5>Administratif</h5><div class="amount">12 000 €</div><div class="per">par an</div></div>
+      <div class="cap reveal"><div class="ico" aria-hidden="true">🌿</div><h5>Jardinage</h5><div class="amount">5 000 €</div><div class="per">par an</div></div>
+      <div class="cap reveal"><div class="ico" aria-hidden="true">🧽</div><h5>Ménage</h5><div class="amount">12 000 €</div><div class="per">par an</div></div>
+      <div class="cap reveal"><div class="ico" aria-hidden="true">💻</div><h5>Informatique</h5><div class="amount">3 000 €</div><div class="per">par an</div></div>
+      <div class="cap reveal"><div class="ico" aria-hidden="true">📄</div><h5>Administratif</h5><div class="amount">12 000 €</div><div class="per">par an</div></div>
     </div>
 
     <div class="simulator reveal">
@@ -1135,10 +1118,10 @@
         <h3>Simulez votre économie</h3>
         <span class="live">Calcul en temps réel</span>
       </div>
-      <div class="sim-amount"><span id="simAmt">2 000</span><small> €</small></div>
-      <input type="range" id="simRange" min="20" max="12000" step="20" value="2000" />
-      <div class="sim-ticks"><span>20 €</span><span>3 000 €</span><span>6 000 €</span><span>9 000 €</span><span>12 000 €</span></div>
-      <div class="sim-result">
+      <label for="simRange" class="sim-amount"><span id="simAmt">2 000</span><small> €</small></label>
+      <input type="range" id="simRange" min="20" max="12000" step="20" value="2000" aria-label="Montant annuel de prestations en euros" />
+      <div class="sim-ticks" aria-hidden="true"><span>20 €</span><span>3 000 €</span><span>6 000 €</span><span>9 000 €</span><span>12 000 €</span></div>
+      <div class="sim-result" aria-live="polite">
         <div class="sim-cell before">
           <div class="l">Prix prestation</div>
           <div class="v" id="simBefore">2 000 €</div>
@@ -1157,7 +1140,7 @@
 </section>
 
 <!-- ZONES -->
-<section id="zones" data-screen-label="07 Zones">
+<section id="zones">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Zones d'intervention</div>
@@ -1166,19 +1149,19 @@
     </div>
     <div class="zones-grid">
       <div class="zone reveal">
-        <div class="ico">🏔️</div>
+        <div class="ico" aria-hidden="true">🏔️</div>
         <h4>Rhône-Alpes</h4>
       </div>
       <div class="zone reveal">
-        <div class="ico">⛵</div>
+        <div class="ico" aria-hidden="true">⛵</div>
         <h4>Bouches-du-Rhône</h4>
       </div>
       <div class="zone reveal">
-        <div class="ico">🌻</div>
+        <div class="ico" aria-hidden="true">🌻</div>
         <h4>Vaucluse</h4>
       </div>
       <div class="zone reveal">
-        <div class="ico">🌅</div>
+        <div class="ico" aria-hidden="true">🌅</div>
         <h4>Occitanie</h4>
       </div>
     </div>
@@ -1186,7 +1169,7 @@
 </section>
 
 <!-- AVIS -->
-<section class="reviews-bg" id="avis" data-screen-label="08 Avis">
+<section class="reviews-bg" id="avis">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Avis clients</div>
@@ -1195,7 +1178,7 @@
     </div>
     <div class="reviews-grid">
       <div class="review reveal">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Tonte impeccable et haie taillée à la perfection. L'intervenant est ponctuel et soigneux. Le paiement en ligne avec le crédit d'impôt direct, c'est très simple."</p>
         <div class="review-foot">
           <div class="review-avatar">MC</div>
@@ -1206,7 +1189,7 @@
         </div>
       </div>
       <div class="review reveal">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Je fais appel à SELIOM toutes les deux semaines pour le ménage. Toujours la même personne, sérieuse et discrète. Très satisfaite, je recommande."</p>
         <div class="review-foot">
           <div class="review-avatar">JD</div>
@@ -1217,7 +1200,7 @@
         </div>
       </div>
       <div class="review reveal">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Mon ordinateur ne démarrait plus. Intervention sous 48h, dépannage en une heure et formation à Windows en bonus. Patient et pédagogue."</p>
         <div class="review-foot">
           <div class="review-avatar">SL</div>
@@ -1228,7 +1211,7 @@
         </div>
       </div>
       <div class="review reveal">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Aide précieuse pour mes démarches retraite et impôts. SELIOM a démêlé tout mon classement en une après-midi. Le tarif divisé par deux, vraiment top."</p>
         <div class="review-foot">
           <div class="review-avatar">RH</div>
@@ -1243,7 +1226,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" data-screen-label="09 Contact">
+<section id="contact">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Devis gratuit</div>
@@ -1273,7 +1256,7 @@
             <div><div class="l">Horaires</div><div class="v small">Lundi au dimanche<br/>9h — 22h</div></div>
           </div>
           <div class="contact-item">
-            <div class="i" style="background: rgba(37,211,102,.18); color: #25D366;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.2-.5-.3z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6C8.1 23.5 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.5 15.6 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg></div>
+            <div class="i" style="background: rgba(37,211,102,.18); color: #25D366;"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.2-.5-.3z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6C8.1 23.5 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.5 15.6 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg></div>
             <div><div class="l">WhatsApp</div><div class="v small">Discutez avec nous instantanément</div></div>
           </div>
         </div>
@@ -1348,11 +1331,11 @@
 </section>
 
 <!-- FOOTER -->
-<footer data-screen-label="10 Footer">
+<footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo"><img src="logo-seliom.svg" alt="SELIOM" class="logo-mark" /><span>SELIOM</span></div>
+        <div class="logo"><img src="logo-seliom.svg" alt="" class="logo-mark" width="40" height="40" /><span>SELIOM</span></div>
         <p>Services à la personne agréés SAP. Crédit d'impôt immédiat de 50% via Nova Urssaf, sur tous nos services.</p>
         <div class="footer-legal">
           <strong style="color: rgba(255,255,255,.85);">SELIOM SASU</strong><br/>
@@ -1392,15 +1375,15 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 SELIOM SASU · Tous droits réservés</div>
+      <div>© <span id="footYear"></span> SELIOM SASU · Tous droits réservés</div>
       <div>Service agréé SAP · Nova Urssaf · Avance immédiate crédit d'impôt</div>
     </div>
   </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a class="wa" href="https://wa.me/33651454549" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.2-.5-.3z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6C8.1 23.5 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.5 15.6 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg>
+<a class="wa" href="https://wa.me/33651454549" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.2-.5-.3z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6C8.1 23.5 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.9 1 1-3.8-.2-.4C2.5 15.6 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg>
 </a>
 
 <script>
@@ -1449,18 +1432,23 @@
   const simBefore = document.getElementById('simBefore');
   const simSave = document.getElementById('simSave');
   const simAfter = document.getElementById('simAfter');
-  const updateSim = () => {
-    const v = +range.value;
-    simAmt.textContent = fmt(v);
-    simBefore.textContent = fmt(v) + ' €';
-    simSave.textContent = '−' + fmt(v / 2) + ' €';
-    simAfter.textContent = fmt(v / 2) + ' €';
-    // visual gradient on track
-    const pct = ((v - range.min) / (range.max - range.min)) * 100;
-    range.style.background = `linear-gradient(90deg, var(--gold) 0%, var(--gold) ${pct}%, rgba(255,255,255,.12) ${pct}%, rgba(255,255,255,.12) 100%)`;
-  };
-  range.addEventListener('input', updateSim);
-  updateSim();
+  if (range && simAmt && simBefore && simSave && simAfter) {
+    const updateSim = () => {
+      const v = +range.value;
+      simAmt.textContent = fmt(v);
+      simBefore.textContent = fmt(v) + ' €';
+      simSave.textContent = '−' + fmt(v / 2) + ' €';
+      simAfter.textContent = fmt(v / 2) + ' €';
+      const pct = ((v - range.min) / (range.max - range.min)) * 100;
+      range.style.background = `linear-gradient(90deg, var(--gold) 0%, var(--gold) ${pct}%, rgba(255,255,255,.12) ${pct}%, rgba(255,255,255,.12) 100%)`;
+    };
+    range.addEventListener('input', updateSim);
+    updateSim();
+  }
+
+  // Footer copyright year (auto)
+  const footYear = document.getElementById('footYear');
+  if (footYear) footYear.textContent = new Date().getFullYear();
 
   // Contact form — submission AJAX vers Formspree
   const form = document.getElementById('devisForm');
