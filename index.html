@@ -684,9 +684,22 @@
   .review-text { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; flex: 1; }
   .review-foot { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
   .review-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     background: var(--primary-soft); color: var(--primary);
     display: grid; place-items: center; font-weight: 700; font-size: 14px;
+    overflow: hidden;
+    flex: none;
+    border: 2px solid transparent;
+    transition: border-color .3s, transform .3s;
+  }
+  .review-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .review:hover .review-avatar {
+    border-color: var(--gold);
+    transform: scale(1.05);
   }
   .review-name { font-weight: 600; font-size: 14px; color: var(--text-strong); }
   .review-tag { font-size: 12px; color: var(--text-soft); }
@@ -1214,7 +1227,7 @@
         <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Tonte impeccable et haie taillée à la perfection. L'intervenant est ponctuel et soigneux. Le paiement en ligne avec le crédit d'impôt direct, c'est très simple."</p>
         <div class="review-foot">
-          <div class="review-avatar">MC</div>
+          <div class="review-avatar"><img src="assets/avatar-marie.jpg" alt="" width="44" height="44" loading="lazy" decoding="async" /></div>
           <div>
             <div class="review-name">Marie C.</div>
             <div class="review-tag">Jardinage · Lyon</div>
@@ -1225,7 +1238,7 @@
         <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Je fais appel à SELIOM toutes les deux semaines pour le ménage. Toujours la même personne, sérieuse et discrète. Très satisfaite, je recommande."</p>
         <div class="review-foot">
-          <div class="review-avatar">JD</div>
+          <div class="review-avatar"><img src="assets/avatar-jeanpierre.jpg" alt="" width="44" height="44" loading="lazy" decoding="async" /></div>
           <div>
             <div class="review-name">Jean-Pierre D.</div>
             <div class="review-tag">Ménage · Marseille</div>
@@ -1236,7 +1249,7 @@
         <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Mon ordinateur ne démarrait plus. Intervention sous 48h, dépannage en une heure et formation à Windows en bonus. Patient et pédagogue."</p>
         <div class="review-foot">
-          <div class="review-avatar">SL</div>
+          <div class="review-avatar"><img src="assets/avatar-sylvie.jpg" alt="" width="44" height="44" loading="lazy" decoding="async" /></div>
           <div>
             <div class="review-name">Sylvie L.</div>
             <div class="review-tag">Informatique · Montpellier</div>
@@ -1247,7 +1260,7 @@
         <div class="stars" role="img" aria-label="Note 5 sur 5">★★★★★</div>
         <p class="review-text">"Aide précieuse pour mes démarches retraite et impôts. SELIOM a démêlé tout mon classement en une après-midi. Le tarif divisé par deux, vraiment top."</p>
         <div class="review-foot">
-          <div class="review-avatar">RH</div>
+          <div class="review-avatar"><img src="assets/avatar-robert.jpg" alt="" width="44" height="44" loading="lazy" decoding="async" /></div>
           <div>
             <div class="review-name">Robert H.</div>
             <div class="review-tag">Administratif · Avignon</div>
