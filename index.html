@@ -341,16 +341,22 @@
   .team-photos {
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    background: linear-gradient(160deg, var(--primary-soft) 0%, #ffffff 100%);
     border: 1px solid var(--line);
-    background: var(--bg);
+    box-shadow: var(--shadow-lg);
+    padding: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 320px;
   }
   .team-photo-img {
     width: 100%;
     height: auto;
+    max-height: 480px;
     display: block;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center bottom;
   }
   .team-photo.tall { grid-row: 1 / -1; height: auto; }
   .team-text h2 { margin-top: 0; }
@@ -925,7 +931,7 @@
   <div class="container">
     <div class="team">
       <div class="team-photos reveal left">
-        <img src="assets/equipe-seliom.jpg" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" loading="lazy" />
+        <img src="assets/equipe-seliom.png" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" loading="lazy" />
       </div>
       <div class="team-text reveal right">
         <div class="section-eyebrow">L'équipe SELIOM</div>
