@@ -115,7 +115,10 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
   body {
     margin: 0;
     font-family: 'Sora', system-ui, sans-serif;
@@ -124,8 +127,10 @@
     -webkit-font-smoothing: antialiased;
     line-height: 1.55;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
   }
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; height: auto; }
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
@@ -777,10 +782,22 @@
   .wa svg { width: 30px; height: 30px; color: white; }
 
   /* ───────── REVEAL ANIMATIONS ───────── */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; will-change: opacity, transform; }
   .reveal.left { transform: translateX(-30px); }
   .reveal.right { transform: translateX(30px); }
   .reveal.show { opacity: 1; transform: none; }
+
+  /* Anims plus douces sur mobile pour éviter l'effet "ça bouge" */
+  @media (max-width: 768px) {
+    .reveal { transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.left, .reveal.right { transform: translateY(12px); }
+  }
+  /* Respect des préférences utilisateur — pas d'animation si demandé */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.left, .reveal.right { transform: none; transition: opacity .2s ease; }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
 
   /* ───────── RESPONSIVE ───────── */
   @media (max-width: 1024px) {
@@ -847,7 +864,7 @@
 <nav class="nav" id="nav" data-screen-label="01 Nav">
   <div class="container nav-inner">
     <a href="#top" class="logo">
-      <img src="logo-seliom.svg" alt="SELIOM" class="logo-mark" />
+      <img src="logo-seliom.svg" alt="SELIOM" class="logo-mark" width="40" height="40" />
       <span>SELIOM</span>
     </a>
     <div class="nav-right">
@@ -943,7 +960,7 @@
   <div class="container">
     <div class="team">
       <div class="team-photos reveal left">
-        <img src="assets/equipe-seliom.png" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" loading="lazy" />
+        <img src="assets/equipe-seliom.png" alt="L'équipe SELIOM — services à la personne" class="team-photo-img" width="3840" height="2180" loading="lazy" decoding="async" />
       </div>
       <div class="team-text reveal right">
         <div class="section-eyebrow">L'équipe SELIOM</div>
@@ -974,7 +991,7 @@
     <div class="services-grid">
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" />
+          <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" width="1200" height="800" loading="lazy" decoding="async" />
           <div class="service-badge"><span class="ico">🌿</span>Jardinage</div>
         </div>
         <div class="service-body">
@@ -992,7 +1009,7 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/femme-menage.png" alt="Ménage à domicile par SELIOM" class="ph" loading="lazy" />
+          <img src="assets/femme-menage.png" alt="Ménage à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
           <div class="service-badge"><span class="ico">🧽</span>Ménage</div>
         </div>
         <div class="service-body">
@@ -1010,7 +1027,7 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/informatique.png" alt="Assistance informatique à domicile par SELIOM" class="ph" loading="lazy" />
+          <img src="assets/informatique.png" alt="Assistance informatique à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
           <div class="service-badge"><span class="ico">💻</span>Informatique</div>
         </div>
         <div class="service-body">
@@ -1028,7 +1045,7 @@
 
       <article class="service-card reveal">
         <div class="service-img">
-          <img src="assets/administratif.png" alt="Assistance administrative à domicile par SELIOM" class="ph" loading="lazy" />
+          <img src="assets/administratif.png" alt="Assistance administrative à domicile par SELIOM" class="ph" width="3840" height="2180" loading="lazy" decoding="async" />
           <div class="service-badge"><span class="ico">📄</span>Administratif</div>
         </div>
         <div class="service-body">
@@ -1060,7 +1077,7 @@
       <p class="section-lead">Grâce au dispositif Nova Urssaf, vous bénéficiez du crédit d'impôt instantanément — pas l'année suivante. Aucune démarche.</p>
     </div>
 
-    <img src="assets/urssaf-credit.jpg" alt="Mon crédit d'impôt pour les services à la personne — immédiat, via Urssaf" class="urssaf-banner reveal" />
+    <img src="assets/urssaf-credit.jpg" alt="Mon crédit d'impôt pour les services à la personne — immédiat, via Urssaf" class="urssaf-banner reveal" width="300" height="150" loading="lazy" decoding="async" />
 
     <div class="credit-steps">
       <div class="credit-step reveal">
