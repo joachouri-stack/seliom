@@ -672,7 +672,13 @@
     background: var(--bg); border-radius: var(--radius);
     padding: 26px;
     display: flex; flex-direction: column; gap: 14px;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+  }
+  .review:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 24px 40px -16px rgba(232, 168, 76, .45);
   }
   .review .stars { color: var(--gold); font-size: 14px; letter-spacing: 1px; }
   .review-text { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; flex: 1; }
