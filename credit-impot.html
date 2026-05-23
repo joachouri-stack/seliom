@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crédit d'impôt immédiat 50% — Tout comprendre · SELIOM</title>
+<meta name="description" content="Le crédit d'impôt immédiat de 50% pour les services à la personne expliqué simplement : fonctionnement, plafonds, éligibilité, exemples chiffrés et FAQ." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.seliom.fr/credit-impot.html" />
+<link rel="icon" type="image/svg+xml" href="logo-seliom.svg" />
+<meta name="theme-color" content="#368c9b" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #368c9b;
+    --primary-dark: #1f5a66;
+    --primary-soft: #e3f1f3;
+    --gold: #E8A84C;
+    --gold-soft: #fdf3e0;
+    --bg: #f7f8fa;
+    --text: #374151;
+    --text-soft: #6b7280;
+    --text-strong: #111827;
+    --line: #e5e7eb;
+    --dark: #0e1d22;
+    --radius: 16px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Sora', system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  img { max-width: 100%; display: block; height: auto; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { width: min(960px, 100% - 40px); margin-inline: auto; }
+  .container.tight { width: min(720px, 100% - 40px); }
+
+  /* NAV simplifiée */
+  .nav {
+    background: white;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    width: min(1200px, 100% - 40px); margin-inline: auto;
+  }
+  .nav .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 20px; color: var(--text-strong);
+  }
+  .nav .logo img { width: 36px; height: 36px; border-radius: 8px; }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .nav-actions .back { font-size: 14px; font-weight: 500; color: var(--text-soft); }
+  .nav-actions .back:hover { color: var(--primary); text-decoration: none; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 999px;
+    font-weight: 600; font-size: 14.5px;
+    transition: transform .15s, background .2s, color .2s;
+    white-space: nowrap;
+    border: none; cursor: pointer; font-family: inherit;
+  }
+  .btn-primary { background: var(--primary); color: white; box-shadow: 0 8px 18px -8px rgba(54,140,155,.7); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); text-decoration: none; color: white; }
+  .btn-gold { background: var(--gold); color: #5a3a0f; }
+  .btn-gold:hover { background: #d8983c; text-decoration: none; color: #5a3a0f; }
+  .btn-outline { background: white; color: var(--text-strong); border: 1px solid var(--line); }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+
+  /* HERO sombre */
+  .hero {
+    background: linear-gradient(165deg, var(--dark) 0%, #0a1518 100%);
+    color: white;
+    padding: 80px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: .25; top: -200px; right: -150px;
+  }
+  .hero::after {
+    content: ''; position: absolute; width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    opacity: .12; bottom: -200px; left: -100px;
+  }
+  .hero-inner { position: relative; z-index: 2; text-align: center; max-width: 720px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    background: rgba(232,168,76,.15); color: var(--gold);
+    font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(232,168,76,.25);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 4.6vw, 48px);
+    line-height: 1.18; letter-spacing: -.01em;
+    font-weight: 700;
+    margin: 0 0 18px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--gold), #f6c577);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p.lead {
+    font-size: 18px;
+    color: rgba(255,255,255,.78);
+    margin: 0 0 32px;
+  }
+  .hero-cta { display: inline-flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  /* SECTIONS */
+  section { padding: 70px 0; }
+  .section-title {
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700; color: var(--text-strong);
+    margin: 0 0 14px; letter-spacing: -.01em;
+    line-height: 1.25;
+  }
+  .section-eyebrow {
+    color: var(--primary); font-weight: 600; font-size: 13px;
+    letter-spacing: .12em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-head { margin-bottom: 40px; }
+  .section-head.center { text-align: center; }
+  .section-head p { font-size: 17px; color: var(--text-soft); margin: 0; }
+
+  /* TLDR card */
+  .tldr {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-top: -40px;
+    position: relative; z-index: 3;
+    box-shadow: 0 30px 60px -30px rgba(15,23,42,.2);
+  }
+  .tldr h2 {
+    font-size: 20px; font-weight: 700; color: var(--text-strong);
+    margin: 0 0 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tldr h2::before {
+    content: '✓'; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--primary); color: white;
+    display: grid; place-items: center; font-size: 16px;
+  }
+  .tldr ul { margin: 0; padding-left: 20px; }
+  .tldr li { margin-bottom: 8px; }
+  .tldr li strong { color: var(--text-strong); }
+
+  /* 3 ÉTAPES */
+  .steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .step {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    position: relative;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 24px 40px -16px rgba(232,168,76,.35);
+  }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--gold); color: #5a3a0f;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 18px;
+    margin-bottom: 18px;
+  }
+  .step h3 { margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--text-strong); }
+  .step p { margin: 0; font-size: 14.5px; color: var(--text-soft); }
+
+  /* TABLEAU PLAFONDS */
+  .ceilings-bg { background: white; }
+  .ceilings-table {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: white;
+  }
+  .ceilings-table table {
+    width: 100%; border-collapse: collapse;
+  }
+  .ceilings-table th, .ceilings-table td {
+    padding: 16px 20px; text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .ceilings-table th {
+    background: var(--bg);
+    font-weight: 600; color: var(--text-strong);
+    font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+  }
+  .ceilings-table td:last-child {
+    color: var(--text-strong); font-weight: 700;
+    text-align: right;
+  }
+  .ceilings-table tr:last-child td { border-bottom: none; }
+  .ceilings-table tr:hover td { background: var(--gold-soft); }
+  .ceilings-note {
+    margin-top: 14px; font-size: 13px; color: var(--text-soft);
+    text-align: center;
+  }
+
+  /* QUI EST ÉLIGIBLE */
+  .eligibility-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .elig {
+    background: white; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .elig .ico {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 18px;
+  }
+  .elig.yes .ico { background: rgba(34,197,94,.12); color: #16a34a; }
+  .elig.no  .ico { background: rgba(239,68,68,.10); color: #dc2626; }
+  .elig h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700; color: var(--text-strong); }
+  .elig p { margin: 0; font-size: 14px; color: var(--text-soft); }
+
+  /* EXEMPLES */
+  .examples-bg { background: white; }
+  .examples-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .example {
+    background: linear-gradient(160deg, var(--primary-soft) 0%, white 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+  }
+  .example .label {
+    font-size: 13px; font-weight: 600; color: var(--primary);
+    text-transform: uppercase; letter-spacing: .05em;
+    margin-bottom: 8px;
+  }
+  .example .scenario { font-size: 15px; color: var(--text-soft); margin-bottom: 18px; min-height: 44px; }
+  .example .calc { display: grid; gap: 6px; margin-bottom: 16px; }
+  .example .calc-row {
+    display: flex; justify-content: space-between;
+    font-size: 14.5px; color: var(--text);
+  }
+  .example .calc-row.crossed span:last-child {
+    text-decoration: line-through; color: var(--text-soft);
+  }
+  .example .calc-row.save span:last-child { color: var(--primary); font-weight: 700; }
+  .example .result {
+    background: var(--gold); color: #5a3a0f;
+    padding: 14px; border-radius: 12px;
+    font-weight: 800; font-size: 22px;
+    margin-top: 10px;
+  }
+  .example .result small { display: block; font-size: 12px; font-weight: 500; opacity: .8; margin-top: 2px; }
+
+  /* FAQ */
+  .faq { display: grid; gap: 12px; }
+  .faq details {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 4px 0;
+    transition: border-color .25s;
+  }
+  .faq details[open] { border-color: var(--primary); }
+  .faq summary {
+    padding: 18px 22px;
+    font-weight: 600; color: var(--text-strong);
+    cursor: pointer; font-size: 15.5px;
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    font-size: 22px; font-weight: 400; color: var(--primary);
+    transition: transform .25s;
+    flex: none;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details > div {
+    padding: 0 22px 18px;
+    font-size: 14.5px; color: var(--text-soft);
+  }
+  .faq details > div p { margin: 0 0 10px; }
+  .faq details > div p:last-child { margin-bottom: 0; }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: linear-gradient(165deg, var(--dark) 0%, #0a1518 100%);
+    color: white; text-align: center;
+    border-radius: var(--radius);
+    padding: 50px 32px;
+    margin: 0 auto;
+    max-width: 720px;
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: ''; position: absolute; width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    opacity: .15; top: -120px; right: -80px;
+  }
+  .cta-final h2 { margin: 0 0 10px; font-size: 26px; color: white; position: relative; }
+  .cta-final p { margin: 0 0 24px; color: rgba(255,255,255,.75); font-size: 16px; position: relative; }
+  .cta-final .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+  /* FOOTER simplifié */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+  }
+  footer a { color: rgba(255,255,255,.8); }
+  footer .links { margin-top: 8px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .steps, .examples-grid { grid-template-columns: 1fr; }
+    .eligibility-grid { grid-template-columns: 1fr; }
+    .ceilings-table th, .ceilings-table td { padding: 12px 14px; font-size: 14px; }
+    section { padding: 50px 0; }
+    .hero { padding: 60px 0 50px; }
+    .tldr { padding: 24px; margin-top: -30px; }
+    .cta-final { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo-seliom.svg" alt="SELIOM" />
+      <span>SELIOM</span>
+    </a>
+    <div class="nav-actions">
+      <a href="index.html" class="back">← Retour au site</a>
+      <a href="index.html#contact" class="btn btn-primary">Devis gratuit</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Crédit d'impôt immédiat · Avance Urssaf</span>
+    <h1>Vous payez <em>50%</em>. L'État rembourse le reste, <em>immédiatement</em>.</h1>
+    <p class="lead">Le crédit d'impôt pour les services à la personne est désormais versé en temps réel via l'Urssaf. Plus besoin d'attendre la déclaration — vous ne réglez que la moitié de la facture, le jour même.</p>
+    <div class="hero-cta">
+      <a href="index.html#contact" class="btn btn-gold">Demander un devis gratuit</a>
+      <a href="#comment-ca-marche" class="btn btn-outline" style="background: rgba(255,255,255,.08); color: white; border-color: rgba(255,255,255,.25);">Voir comment ça marche</a>
+    </div>
+  </div>
+</header>
+
+<!-- TL;DR -->
+<section style="padding-top: 0;">
+  <div class="container tight">
+    <div class="tldr">
+      <h2>L'essentiel en 30 secondes</h2>
+      <ul>
+        <li><strong>50% du montant de la prestation</strong> est pris en charge par l'État (article 199 sexdecies du CGI).</li>
+        <li><strong>Sans conditions de ressources</strong> — accessible à tous les particuliers fiscalement domiciliés en France.</li>
+        <li><strong>Versement immédiat</strong> via le dispositif Avance Immédiate de l'Urssaf : vous payez 50%, SELIOM perçoit l'autre moitié de l'État.</li>
+        <li><strong>Plafond global : 12 000 €/an</strong> par foyer fiscal (majorable jusqu'à 15 000 € selon situation).</li>
+        <li><strong>Aucune avance de trésorerie, aucune démarche fiscale.</strong> Tout est automatique.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section id="comment-ca-marche">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-eyebrow">Comment ça marche</div>
+      <h2 class="section-title">3 étapes, ensuite tout est automatique.</h2>
+      <p>Une seule inscription sur urssaf.fr, et le crédit d'impôt s'applique à chaque prestation.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Vous activez l'avance immédiate</h3>
+        <p>Inscription gratuite sur <a href="https://www.urssaf.fr/" target="_blank" rel="noopener noreferrer">urssaf.fr</a> en 5 minutes. SELIOM peut vous accompagner si besoin.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>SELIOM réalise la prestation</h3>
+        <p>Jardinage, ménage, informatique ou administratif — facturée à son tarif normal. La facture est transmise à l'Urssaf.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Vous ne payez que 50%</h3>
+        <p>L'Urssaf prélève la moitié sur votre compte. Les 50% restants sont versés directement à SELIOM par l'État. Aucune avance de votre part.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAFONDS -->
+<section class="ceilings-bg">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-eyebrow">Plafonds annuels</div>
+      <h2 class="section-title">Combien pouvez-vous bénéficier ?</h2>
+      <p>Plafond global de <strong>12 000 €/an</strong> par foyer fiscal, avec des plafonds spécifiques par activité.</p>
+    </div>
+    <div class="ceilings-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Plafond de dépenses</th>
+            <th style="text-align:right;">Économie max/an</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌿 Jardinage</td>
+            <td>5 000 €</td>
+            <td>2 500 €</td>
+          </tr>
+          <tr>
+            <td>🧽 Ménage</td>
+            <td>12 000 €</td>
+            <td>6 000 €</td>
+          </tr>
+          <tr>
+            <td>💻 Assistance informatique</td>
+            <td>3 000 €</td>
+            <td>1 500 €</td>
+          </tr>
+          <tr>
+            <td>📄 Assistance administrative</td>
+            <td>12 000 €</td>
+            <td>6 000 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ceilings-note">
+      Plafond global majoré de <strong>1 500 €</strong> par enfant à charge ou membre du foyer âgé de plus de 65 ans, dans la limite de <strong>15 000 €/an</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ÉLIGIBILITÉ -->
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-eyebrow">Conditions d'éligibilité</div>
+      <h2 class="section-title">Êtes-vous concerné ?</h2>
+      <p>Le crédit d'impôt est accessible à tous, sans conditions de ressources.</p>
+    </div>
+    <div class="eligibility-grid">
+      <div class="elig yes">
+        <div class="ico" aria-hidden="true">✓</div>
+        <div>
+          <h3>Particulier domicilié fiscalement en France</h3>
+          <p>Que vous soyez imposable ou non, vous bénéficiez du crédit d'impôt.</p>
+        </div>
+      </div>
+      <div class="elig yes">
+        <div class="ico" aria-hidden="true">✓</div>
+        <div>
+          <h3>Prestation réalisée à votre domicile</h3>
+          <p>Résidence principale ou secondaire, locataire ou propriétaire.</p>
+        </div>
+      </div>
+      <div class="elig yes">
+        <div class="ico" aria-hidden="true">✓</div>
+        <div>
+          <h3>Prestataire agréé SAP</h3>
+          <p>SELIOM est titulaire de l'agrément officiel n° SAP993409523.</p>
+        </div>
+      </div>
+      <div class="elig yes">
+        <div class="ico" aria-hidden="true">✓</div>
+        <div>
+          <h3>Sans conditions de ressources</h3>
+          <p>Aucun plafond de revenus, aucune restriction d'âge ou de situation familiale.</p>
+        </div>
+      </div>
+      <div class="elig no">
+        <div class="ico" aria-hidden="true">✕</div>
+        <div>
+          <h3>Activité professionnelle non éligible</h3>
+          <p>Le crédit d'impôt concerne uniquement les services pour vos besoins personnels.</p>
+        </div>
+      </div>
+      <div class="elig no">
+        <div class="ico" aria-hidden="true">✕</div>
+        <div>
+          <h3>Prestation hors agrément SAP</h3>
+          <p>Seuls les services listés dans l'arrêté du 17 mars 2009 ouvrent droit au crédit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLES -->
+<section class="examples-bg">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-eyebrow">Exemples concrets</div>
+      <h2 class="section-title">Combien vous payez vraiment.</h2>
+      <p>Trois situations courantes — toujours 50% à votre charge, le reste pris en charge par l'État.</p>
+    </div>
+    <div class="examples-grid">
+      <div class="example">
+        <div class="label">Ménage hebdomadaire</div>
+        <div class="scenario">3h de ménage par semaine, 25 €/h</div>
+        <div class="calc">
+          <div class="calc-row crossed"><span>Facture annuelle</span><span>3 900 €</span></div>
+          <div class="calc-row save"><span>Crédit d'impôt</span><span>−1 950 €</span></div>
+        </div>
+        <div class="result">1 950 €<small>de votre poche par an</small></div>
+      </div>
+      <div class="example">
+        <div class="label">Jardinage mensuel</div>
+        <div class="scenario">2h de jardinage par mois, 30 €/h</div>
+        <div class="calc">
+          <div class="calc-row crossed"><span>Facture annuelle</span><span>720 €</span></div>
+          <div class="calc-row save"><span>Crédit d'impôt</span><span>−360 €</span></div>
+        </div>
+        <div class="result">360 €<small>de votre poche par an</small></div>
+      </div>
+      <div class="example">
+        <div class="label">Aide administrative</div>
+        <div class="scenario">10h d'aide aux démarches, 35 €/h</div>
+        <div class="calc">
+          <div class="calc-row crossed"><span>Facture totale</span><span>350 €</span></div>
+          <div class="calc-row save"><span>Crédit d'impôt</span><span>−175 €</span></div>
+        </div>
+        <div class="result">175 €<small>de votre poche</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container tight">
+    <div class="section-head center">
+      <div class="section-eyebrow">Questions fréquentes</div>
+      <h2 class="section-title">Tout ce que vous voulez savoir.</h2>
+    </div>
+    <div class="faq">
+
+      <details>
+        <summary>Faut-il être imposable pour bénéficier du crédit d'impôt ?</summary>
+        <div>
+          <p>Non. Depuis 2017, le dispositif fonctionne comme un <strong>crédit d'impôt</strong> et non plus une réduction. Si vous n'êtes pas imposable, l'État vous verse directement la différence. Avec l'avance immédiate, vous ne payez que 50% du montant initial, peu importe votre situation fiscale.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Quelle est la différence entre crédit d'impôt classique et avance immédiate ?</summary>
+        <div>
+          <p><strong>Crédit d'impôt classique</strong> : vous payez 100% de la facture, puis l'État vous rembourse 50% un an plus tard, après votre déclaration.</p>
+          <p><strong>Avance immédiate (Nova Urssaf)</strong> : vous payez seulement 50% au moment de la prestation. L'État verse les 50% restants directement à SELIOM. Plus d'avance de trésorerie, plus d'attente.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Comment activer l'avance immédiate ?</summary>
+        <div>
+          <p>L'inscription se fait gratuitement sur <a href="https://www.urssaf.fr/" target="_blank" rel="noopener noreferrer">urssaf.fr</a> via votre espace Particulier. Il faut compter environ 5 à 10 minutes pour créer le compte et activer l'avance immédiate. SELIOM peut vous accompagner pour cette démarche si vous le souhaitez.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Quels services sont éligibles au crédit d'impôt ?</summary>
+        <div>
+          <p>Tous les services à la personne agréés SAP, dont les 4 services SELIOM :</p>
+          <p>• <strong>Jardinage</strong> (tonte, taille, désherbage) — plafond 5 000 €/an<br>
+          • <strong>Ménage</strong> (nettoyage, repassage) — plafond 12 000 €/an<br>
+          • <strong>Assistance informatique</strong> (dépannage, formation) — plafond 3 000 €/an<br>
+          • <strong>Assistance administrative</strong> (courriers, démarches) — plafond 12 000 €/an</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Le plafond de 12 000 € est-il par personne ou par foyer ?</summary>
+        <div>
+          <p>Le plafond de 12 000 € s'applique <strong>par foyer fiscal</strong>, pas par personne. Il est majoré de 1 500 € par enfant à charge ou par membre du foyer de plus de 65 ans, dans la limite de 15 000 €/an.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si je dépasse le plafond ?</summary>
+        <div>
+          <p>Au-delà du plafond annuel applicable à votre foyer, les dépenses supplémentaires restent à votre charge à 100%. Le crédit d'impôt ne s'applique que dans la limite des plafonds (par activité et global).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>SELIOM est-il bien agréé pour le crédit d'impôt ?</summary>
+        <div>
+          <p>Oui, SELIOM est titulaire de l'<strong>agrément Services à la Personne n° SAP993409523</strong>, délivré par l'État. Cet agrément est obligatoire pour que les clients puissent bénéficier du crédit d'impôt.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Y a-t-il des conditions d'âge ou de ressources ?</summary>
+        <div>
+          <p><strong>Aucune.</strong> Le crédit d'impôt pour services à la personne est accessible à tous les particuliers domiciliés fiscalement en France, quels que soient leur âge, leurs revenus ou leur situation familiale.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="cta-final">
+      <h2>Prêt à diviser votre facture par 2 ?</h2>
+      <p>Recevez un devis gratuit en moins de 24h. Aucun engagement.</p>
+      <div class="actions">
+        <a href="index.html#contact" class="btn btn-gold">Demander un devis</a>
+        <a href="tel:+33651454549" class="btn btn-outline" style="background: rgba(255,255,255,.08); color: white; border-color: rgba(255,255,255,.25);">📞 06 51 45 45 49</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© <span id="y"></span> SELIOM SASU · Tous droits réservés</div>
+  <div class="links">
+    <a href="index.html">Accueil</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="cgv.html">CGV</a>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
