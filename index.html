@@ -152,6 +152,15 @@
   .nav-inner {
     display: flex; align-items: center; justify-content: space-between;
     height: 72px;
+    position: relative;
+  }
+  /* Desktop : téléphone centré absolument dans la barre */
+  @media (min-width: 769px) {
+    .nav-phone {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   .logo {
     display: flex; align-items: center; gap: 10px;
