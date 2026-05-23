@@ -419,75 +419,124 @@
   .service-card:hover .service-img .ph { transform: scale(1.08); }
   .service-card:hover .service-img::after { opacity: 1; }
 
-  .service-badge {
-    position: absolute; left: 14px; top: 14px;
-    height: 34px; padding: 0 12px; border-radius: 999px;
-    background: rgba(255,255,255,.85);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px -4px rgba(15,23,42,.18);
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 14px; font-weight: 600; color: var(--text-strong);
-    z-index: 2;
-    transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s;
+  /* Cercle décoratif emoji posé sur le bord bas de l'image (240px) */
+  .service-icon {
+    position: absolute;
+    right: 18px;
+    top: calc(240px - 28px);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 8px 20px -6px rgba(15,23,42,.25);
+    display: grid; place-items: center;
+    font-size: 26px; line-height: 1;
+    z-index: 3;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, box-shadow .3s;
   }
-  .service-badge .ico { font-size: 16px; line-height: 1; }
-  .service-card:hover .service-badge {
+  .service-card:hover .service-icon {
     background: var(--gold);
-    color: #5a3a0f;
-    transform: translateY(-2px);
+    transform: rotate(-8deg) scale(1.08);
+    box-shadow: 0 14px 26px -8px rgba(232,168,76,.55);
   }
-  .service-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+  .service-body {
+    padding: 36px 22px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+    flex: 1;
+  }
   .service-name {
-    font-size: 19px; font-weight: 700; color: var(--text-strong); margin: 0; letter-spacing: -.01em;
+    font-size: 22px; font-weight: 700; color: var(--text-strong);
+    margin: 0; letter-spacing: -.015em; line-height: 1.2;
     transition: color .25s;
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  }
-  .service-name::after {
-    content: '→';
-    color: var(--primary); font-weight: 500;
-    opacity: 0; transform: translateX(-8px);
-    transition: opacity .3s, transform .3s cubic-bezier(.2,.8,.2,1);
   }
   .service-card:hover .service-name { color: var(--primary); }
-  .service-card:hover .service-name::after { opacity: 1; transform: translateX(0); }
-  .service-desc { font-size: 14.5px; color: var(--text-soft); margin: 0; }
-  .service-list { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
+
+  .service-desc {
+    font-size: 14.5px; color: var(--text-soft); margin: 0;
+    line-height: 1.55;
+  }
+
+  .service-list { list-style: none; padding: 0; margin: 2px 0 0; display: grid; gap: 9px; }
   .service-list li {
-    font-size: 14px; display: flex; align-items: flex-start; gap: 9px;
+    font-size: 14px; display: flex; align-items: flex-start; gap: 10px;
     color: var(--text);
-    transition: transform .25s;
   }
   .service-list li::before {
-    content: ''; flex: none; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--primary); margin-top: 8px;
-    transition: transform .25s, background .25s;
+    content: '✓';
+    flex: none; width: 18px; height: 18px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--primary-soft); color: var(--primary);
+    font-size: 11px; font-weight: 700;
+    margin-top: 2px;
+    transition: background .25s, color .25s, transform .25s;
   }
   .service-card:hover .service-list li::before {
     background: var(--gold);
-    transform: scale(1.4);
+    color: #5a3a0f;
   }
+
+  /* Plafond crédit d'impôt, plus impactant */
   .service-cap {
-    margin-top: auto; padding: 12px 14px;
-    background: var(--gold-soft); color: #8a5a18;
-    border-radius: 10px;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
-    transition: background .3s, transform .3s;
+    margin-top: auto;
+    padding: 14px 16px;
+    background: var(--gold-soft);
+    border: 1px solid rgba(232,168,76,.35);
+    border-radius: 12px;
+    display: flex; flex-direction: column; gap: 2px;
+    transition: background .3s, border-color .3s;
   }
   .service-card:hover .service-cap {
     background: var(--gold);
-    color: #5a3a0f;
+    border-color: var(--gold);
   }
   .service-cap .label {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12.5px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: .04em;
-    opacity: .85;
+    font-size: 12px; font-weight: 500;
+    color: #8a5a18;
+    text-transform: uppercase; letter-spacing: .05em;
+    transition: color .3s;
   }
   .service-cap .amount {
-    font-size: 16px; font-weight: 700;
-    letter-spacing: -.01em;
+    font-size: 22px; font-weight: 800;
+    color: #5a3a0f;
+    letter-spacing: -.015em;
+    line-height: 1.1;
+    transition: color .3s;
   }
-  .service-cap .dot-g { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .service-cap .amount small {
+    font-size: 13px; font-weight: 500;
+    opacity: .7;
+  }
+  .service-card:hover .service-cap .label,
+  .service-card:hover .service-cap .amount { color: #5a3a0f; }
+
+  /* CTA en bas de chaque card */
+  .service-cta {
+    display: inline-flex;
+    align-items: center; justify-content: center; gap: 6px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--text-strong);
+    font-size: 14px; font-weight: 600;
+    text-align: center;
+    transition: background .25s, border-color .25s, color .25s, transform .15s;
+  }
+  .service-cta:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+  }
+  .service-card:hover .service-cta {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  .service-card:hover .service-cta:hover {
+    background: var(--primary);
+    color: white;
+  }
 
   /* ───────── CREDIT ───────── */
   .credit {
@@ -1035,18 +1084,22 @@
             <source srcset="assets/jardinage.webp" type="image/webp" />
             <img src="assets/jardinage.jpg" alt="Jardinage à domicile par SELIOM" class="ph" width="300" height="231" loading="eager" fetchpriority="high" decoding="async" />
           </picture>
-          <div class="service-badge"><span class="ico" aria-hidden="true">🌿</span>Jardinage</div>
         </div>
+        <div class="service-icon" aria-hidden="true">🌿</div>
         <div class="service-body">
           <h3 class="service-name">Jardinage</h3>
-          <p class="service-desc">Entretien régulier ou ponctuel de votre jardin et de vos extérieurs.</p>
+          <p class="service-desc">Profitez d'un jardin impeccable, toute l'année. Nos jardiniers qualifiés s'occupent de tout.</p>
           <ul class="service-list">
             <li>Tonte de pelouse</li>
             <li>Taille de haies et arbustes</li>
             <li>Désherbage et débroussaillage</li>
             <li>Plantation et aménagement</li>
           </ul>
-          <div class="service-cap"><div class="label"><span class="dot-g"></span>Crédit d'impôt — plafond</div><div class="amount">5 000 €/an</div></div>
+          <div class="service-cap">
+            <span class="label">Crédit d'impôt jusqu'à</span>
+            <span class="amount">5 000 €<small>/an</small></span>
+          </div>
+          <a href="#contact" class="service-cta">Demander un devis<span aria-hidden="true"> →</span></a>
         </div>
       </article>
 
@@ -1056,18 +1109,22 @@
             <source srcset="assets/femme-menage.webp" type="image/webp" />
             <img src="assets/femme-menage.jpg" alt="Ménage à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
           </picture>
-          <div class="service-badge"><span class="ico" aria-hidden="true">🧽</span>Ménage</div>
         </div>
+        <div class="service-icon" aria-hidden="true">🧽</div>
         <div class="service-body">
           <h3 class="service-name">Ménage</h3>
-          <p class="service-desc">Un logement propre, sans y penser.</p>
+          <p class="service-desc">Rentrez chez vous, tout est propre. Un intervenant de confiance, attentif au moindre détail.</p>
           <ul class="service-list">
             <li>Nettoyage complet du logement</li>
             <li>Aspiration et lavage des sols</li>
             <li>Cuisine et sanitaires</li>
             <li>Repassage sur demande</li>
           </ul>
-          <div class="service-cap"><div class="label"><span class="dot-g"></span>Crédit d'impôt — plafond</div><div class="amount">12 000 €/an</div></div>
+          <div class="service-cap">
+            <span class="label">Crédit d'impôt jusqu'à</span>
+            <span class="amount">12 000 €<small>/an</small></span>
+          </div>
+          <a href="#contact" class="service-cta">Demander un devis<span aria-hidden="true"> →</span></a>
         </div>
       </article>
 
@@ -1077,18 +1134,22 @@
             <source srcset="assets/informatique.webp" type="image/webp" />
             <img src="assets/informatique.jpg" alt="Assistance informatique à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
           </picture>
-          <div class="service-badge"><span class="ico" aria-hidden="true">💻</span>Informatique</div>
         </div>
+        <div class="service-icon" aria-hidden="true">💻</div>
         <div class="service-body">
           <h3 class="service-name">Assistance informatique</h3>
-          <p class="service-desc">Un accompagnement clair, sans jargon technique.</p>
+          <p class="service-desc">Dépannage rapide, expliqué simplement. On règle vos soucis numériques sans jargon.</p>
           <ul class="service-list">
             <li>Dépannage ordinateur et tablette</li>
             <li>Installation et configuration</li>
             <li>Formation aux outils numériques</li>
             <li>Aide smartphone et internet</li>
           </ul>
-          <div class="service-cap"><div class="label"><span class="dot-g"></span>Crédit d'impôt — plafond</div><div class="amount">3 000 €/an</div></div>
+          <div class="service-cap">
+            <span class="label">Crédit d'impôt jusqu'à</span>
+            <span class="amount">3 000 €<small>/an</small></span>
+          </div>
+          <a href="#contact" class="service-cta">Demander un devis<span aria-hidden="true"> →</span></a>
         </div>
       </article>
 
@@ -1098,18 +1159,22 @@
             <source srcset="assets/administratif.webp" type="image/webp" />
             <img src="assets/administratif.jpg" alt="Assistance administrative à domicile par SELIOM" class="ph" width="1600" height="908" loading="lazy" decoding="async" />
           </picture>
-          <div class="service-badge"><span class="ico" aria-hidden="true">📄</span>Administratif</div>
         </div>
+        <div class="service-icon" aria-hidden="true">📄</div>
         <div class="service-body">
           <h3 class="service-name">Assistance administrative</h3>
-          <p class="service-desc">Plus de courriers en retard, plus de stress.</p>
+          <p class="service-desc">On vous décharge de la paperasse. Courriers, démarches en ligne, déclarations — sans stress.</p>
           <ul class="service-list">
             <li>Rédaction de courriers</li>
             <li>Aide aux démarches en ligne</li>
             <li>Classement et organisation</li>
             <li>Déclarations et formulaires</li>
           </ul>
-          <div class="service-cap"><div class="label"><span class="dot-g"></span>Crédit d'impôt — plafond</div><div class="amount">12 000 €/an</div></div>
+          <div class="service-cap">
+            <span class="label">Crédit d'impôt jusqu'à</span>
+            <span class="amount">12 000 €<small>/an</small></span>
+          </div>
+          <a href="#contact" class="service-cta">Demander un devis<span aria-hidden="true"> →</span></a>
         </div>
       </article>
     </div>
