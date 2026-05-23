@@ -1380,21 +1380,18 @@
         </div>
       </div>
 
-      <!--
-        Formulaire connecté à Formspree.
-        ➜ Remplacer YOUR_FORMSPREE_ID par l'ID obtenu sur https://formspree.io
-           (compte gratuit, créer un formulaire pointant vers info@seliom.fr).
-      -->
       <form
         id="devisForm"
         class="contact-form reveal right"
-        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        action="https://formsubmit.co/info@seliom.fr"
         method="POST"
       >
         <input type="hidden" name="_subject" value="Nouvelle demande de devis SELIOM" />
-        <input type="hidden" name="_language" value="fr" />
-        <!-- honeypot anti-spam -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.seliom.fr/?envoye=1" />
+        <!-- honeypot anti-spam (FormSubmit lit _honey) -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-grid">
           <div class="form-field">
             <label for="fn">Prénom *</label>
@@ -1566,23 +1563,20 @@
   const formBtn = document.getElementById('formSubmit');
   const formNote = document.getElementById('formNote');
   if (form) {
+    // FormSubmit AJAX : on POSTe en JSON sur https://formsubmit.co/ajax/<email>
+    const ajaxUrl = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
     form.addEventListener('submit', async (e) => {
-      // Si l'endpoint n'est pas configuré, on évite l'envoi et on prévient.
-      if (form.action.includes('YOUR_FORMSPREE_ID')) {
-        e.preventDefault();
-        formNote.textContent = 'Formulaire en mode démo — configurez Formspree dans index.html.';
-        formNote.style.color = '#b8761b';
-        return;
-      }
       e.preventDefault();
       formBtn.disabled = true;
       const originalLabel = formBtn.textContent;
       formBtn.textContent = 'Envoi en cours…';
+      // FormData -> JSON
+      const data = Object.fromEntries(new FormData(form).entries());
       try {
-        const res = await fetch(form.action, {
+        const res = await fetch(ajaxUrl, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
         });
         if (res.ok) {
           form.reset();
